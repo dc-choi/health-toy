@@ -1,8 +1,6 @@
 package kr.co.wizclass.toy.domain.entity.base;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import javax.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -22,6 +20,7 @@ public abstract class BaseEntity {
     @Column(name = "modified_at", columnDefinition = "DATETIME")
     private LocalDateTime modifiedAt;
 
-    @Column(name = "deleted_at", columnDefinition = "DATETIME")
-    private LocalDateTime deletedAt;
+    // 논리적 삭제가 필요한 Entity의 경우 따로 생성하도록 하기.
+//    @Column(name = "deleted_at", columnDefinition = "DATETIME")
+//    private LocalDateTime deletedAt;
 }
